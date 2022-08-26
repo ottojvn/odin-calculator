@@ -7,7 +7,7 @@ function operate(operator, num1, num2) {
   };
 
   const result = operations[operator]();
-  console.log(result);
+  resetDisplay(result);
 }
 
 function setupButtons() {
@@ -28,7 +28,14 @@ function setupButtons() {
 }
 
 function collect() {
-  const displayNumber = parseFloat(displayText);
+  let displayNumber;
+
+  if (display.textContent === "") {
+    displayNumber = 0;
+  } else {
+    displayNumber = parseFloat(display.textContent);
+  }
+
   if (!firstOperand) {
     firstOperand = displayNumber;
     resetDisplay();
@@ -37,15 +44,20 @@ function collect() {
     resetDisplay();
   }
 
-  operator = this.value;
+  const op = this.value;
+  if (op === "=") {
+    operate(operator, firstOperand, secondOperand);
+  } else {
+    operator = this.value;
+  }
 }
 
 function updateDisplay(text) {
   display.textContent += text;
 }
 
-function resetDisplay() {
-  display.textContent = "";
+function resetDisplay(text = "") {
+  display.textContent = text;
 }
 
 function reset() {
