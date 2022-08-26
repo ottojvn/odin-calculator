@@ -18,7 +18,7 @@ body {
 
 #display {
   flex: 1;
-  border-style:outset;
+  border-style: outset;
   border-radius: 5px;
 }
 
@@ -27,24 +27,6 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
-}
-
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.button:not(.empty) {
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 1px;
-}
-.button:not(.empty):hover {
-  background-color: lightgray;
-}
-.button:not(.empty):active {
-  background-color: lightslategray;
 }
 
 .number {
@@ -57,4 +39,8 @@ body {
 
 .operation {
   background-color: lightyellow;
+}
+
+button {
+  font-size: 2rem;
 }
